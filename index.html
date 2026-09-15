@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tip Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="card">
+
+    <header class="header">
+      <h1 class="title">Tip Calculator</h1>
+      <p class="subtitle">Enter the bill, then pick a tip %</p>
+    </header>
+
+    <section class="bill-section" aria-labelledby="bill-label">
+      <label class="section-label" id="bill-label" for="bill">Bill Amount</label>
+      <div class="bill-display">
+        <span class="bill-currency" aria-hidden="true">$</span>
+        <input
+          class="bill-value"
+          id="bill"
+          data-testid="bill-input"
+          type="text"
+          inputmode="decimal"
+          autocomplete="off"
+          placeholder="0.00"
+          aria-label="Bill amount in dollars">
+      </div>
+    </section>
+
+    <section class="keypad" aria-label="Numeric keypad">
+      <div class="key-row">
+        <button class="key" type="button" data-testid="num-1" data-digit="1" aria-label="1">1</button>
+        <button class="key" type="button" data-testid="num-2" data-digit="2" aria-label="2">2</button>
+        <button class="key" type="button" data-testid="num-3" data-digit="3" aria-label="3">3</button>
+      </div>
+      <div class="key-row">
+        <button class="key" type="button" data-testid="num-4" data-digit="4" aria-label="4">4</button>
+        <button class="key" type="button" data-testid="num-5" data-digit="5" aria-label="5">5</button>
+        <button class="key" type="button" data-testid="num-6" data-digit="6" aria-label="6">6</button>
+      </div>
+      <div class="key-row">
+        <button class="key" type="button" data-testid="num-7" data-digit="7" aria-label="7">7</button>
+        <button class="key" type="button" data-testid="num-8" data-digit="8" aria-label="8">8</button>
+        <button class="key" type="button" data-testid="num-9" data-digit="9" aria-label="9">9</button>
+      </div>
+      <div class="key-row">
+        <button class="key" type="button" data-testid="num-decimal" data-digit="." aria-label="Decimal point">.</button>
+        <button class="key" type="button" data-testid="num-0" data-digit="0" aria-label="0">0</button>
+        <button class="key" type="button" data-testid="num-backspace" aria-label="Delete last character">&#9003;</button>
+      </div>
+    </section>
+
+    <section class="tip-section" aria-labelledby="tip-label">
+      <h2 class="section-label" id="tip-label">Tip %</h2>
+      <div class="tip-options" role="group" aria-labelledby="tip-label">
+        <button class="tip-btn" type="button" data-testid="tip-0" data-percent="0" aria-pressed="false">0%</button>
+        <button class="tip-btn" type="button" data-testid="tip-5" data-percent="5" aria-pressed="false">5%</button>
+        <button class="tip-btn" type="button" data-testid="tip-10" data-percent="10" aria-pressed="false">10%</button>
+        <button class="tip-btn" type="button" data-testid="tip-20" data-percent="20" aria-pressed="false">20%</button>
+        <button class="tip-btn" type="button" data-testid="tip-other" aria-pressed="false">Other</button>
+      </div>
+
+      <div class="custom-tip-row is-hidden" data-testid="custom-tip-row">
+        <label class="custom-tip-label" for="custom-tip">Custom tip</label>
+        <span class="custom-tip-value">
+          <input
+            class="custom-tip-input"
+            id="custom-tip"
+            data-testid="custom-tip-input"
+            type="number"
+            min="0"
+            max="100"
+            step="0.1"
+            autocomplete="off"
+            aria-label="Custom tip percentage">
+          <span class="custom-tip-suffix" aria-hidden="true">%</span>
+        </span>
+      </div>
+    </section>
+
+    <section class="results" data-testid="results" aria-live="polite" aria-label="Results">
+      <div class="result-row">
+        <span class="result-label">Tip amount</span>
+        <span class="result-value" data-testid="tip-amount">$0.00</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Tip rate</span>
+        <span class="result-value" data-testid="selected-percent">0%</span>
+      </div>
+      <div class="result-row result-row--total">
+        <span class="result-label result-label--total">Total</span>
+        <span class="result-total" data-testid="total">$0.00</span>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
